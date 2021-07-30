@@ -19,7 +19,8 @@ custom:
   jetpack:
     # Search for hoisted dependencies to one parent above normal.
     base: "../.."
-    trace: true
+    roots:
+      - "../service1"
 
 plugins:
   - serverless-jetpack

@@ -1,0 +1,7 @@
+{
+  "name": "jetpack-test",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}

@@ -1,0 +1,47 @@
+org: pearldotlink
+app: jetpack-test
+service: test
+
+variablesResolutionMode: '20210219'
+useDotenv: true
+frameworkVersion: '2'
+package:
+  include:
+    - "!**/node_modules/aws-sdk/**"
+
+custom:
+  scriptHooks:
+    # These are all the places that jetpack could be invoked that would
+    # ensure the TS files are built right before jetpack kicks in.
+    before:package:createDeploymentArtifacts: yarn build
+    before:package:function:package: yarn build
+    before:jetpack:package:package: yarn build
+  jetpack:
+    # Search for hoisted dependencies to one parent above normal.
+    base: "../.."
+    trace: true
+
+plugins:
+  - serverless-jetpack
+
+provider:
+  name: aws
+  memorySize: 4096
+  stage: '${opt:stage}'
+  runtime: nodejs12.x
+  apiGateway:
+    minimumCompressionSize: 1024
+    shouldStartNameWithService: true
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+  lambdaHashingVersion: '20201221'
+
+functions:
+  service2:
+    timeout: 30
+    handler: dist/index.service2
+    events:
+      - http:
+          path: '/service2'
+          method: GET
+          cors: true

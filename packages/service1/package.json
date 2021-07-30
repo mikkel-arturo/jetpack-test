@@ -1,0 +1,13 @@
+{
+  "name": "@jetpack-test/service1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "aws-lambda": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.81",
+    "typescript": "^4.3.5"
+  }
+}

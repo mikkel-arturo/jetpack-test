@@ -1,0 +1,9 @@
+{
+  "references": [
+    { "path": "./packages/service1" },
+    { "path": "./packages/service2" }
+  ],
+  "files": [],
+  "include": [],
+  "exclude": ["**/node_modules"]
+}

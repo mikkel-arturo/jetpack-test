@@ -22,7 +22,8 @@
     "incremental": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }],
     // "noImplicitAny": true
   },
   "include": ["src/**/*.ts", "*.ts", "tsconfig.json"],

@@ -13,7 +13,9 @@ import { Handler, Context } from 'aws-lambda'
 import { func2 } from './src/func2'
 
 export const service2: Handler = async (event: any, context: Context) => {
+    console.log("here")
     return {
-        result: func2()
+        status: 200,
+        body: 'hi'
     }
 }
